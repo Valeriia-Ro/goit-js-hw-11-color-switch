@@ -1,4 +1,4 @@
-console.log('message');
+
 
 const bodyColor = document.querySelector('body');
 const btnStart = document.querySelector('[data-action="start"]');
@@ -27,19 +27,16 @@ const randomIntegerFromInterval = (min, max) => {
 
 function onBtnStartClick (evt) {
 
-    timeId =  setTimeout(() => {
+    timeId = setTimeout(() => {
+        const index = randomIntegerFromInterval(0, colors.length-1);
         bodyColor.style.background = colors[index];
-        index = randomIntegerFromInterval(0, colors.length-1);
     },CHANGE_COLOR_DELAY);
 
-    if (evt) {
-        btnStart.setAttribute('disabled', true)
-    } else {
-        btnStart.setAttribute('disabled', false)
-    }
-
+    btnStart.setAttribute('disabled', true)
 }
 
 function onBtnStopClick () {
    clearTimeout(timeId);
+   btnStart.removeAttribute('disabled');
+
 }
