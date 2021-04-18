@@ -10,7 +10,6 @@ btnStart.addEventListener('click', onBtnStopClick);
 
 const CHANGE_COLOR_DELAY = 1000;
 
-
 const colors = [
     '#FFFFFF',
     '#2196F3',
@@ -24,9 +23,10 @@ const randomIntegerFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
+let timeId = 0;
 
-function onBtnStartClick (evt) {
-
+function onBtnStartClick () {
+    
     timeId = setTimeout(() => {
         const index = randomIntegerFromInterval(0, colors.length-1);
         bodyColor.style.background = colors[index];
