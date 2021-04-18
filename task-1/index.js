@@ -6,7 +6,7 @@ const btnStop = document.querySelector('[data-action="stop"]');
 console.log(btnStart);
 
 btnStart.addEventListener('click', onBtnStartClick);
-btnStart.addEventListener('click', onBtnStopClick);
+btnStop.addEventListener('click', onBtnStopClick);
 
 const CHANGE_COLOR_DELAY = 1000;
 
@@ -27,7 +27,7 @@ let timeId = 0;
 
 function onBtnStartClick () {
     
-    timeId = setTimeout(() => {
+    timeId = setInterval(() => {
         const index = randomIntegerFromInterval(0, colors.length-1);
         bodyColor.style.background = colors[index];
     },CHANGE_COLOR_DELAY);
